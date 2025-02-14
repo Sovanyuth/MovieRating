@@ -4,6 +4,10 @@
 vector<Movie*> CreateMovies(vector<string> titles, vector<string> directors,
     vector<int> runtimes, vector<int> ids, vector<double> ratings)
 {
+	//if (ids.empty() || titles.empty() || directors.empty() || runtimes.empty() || ratings.empty())
+	//{
+	//	throw invalid_argument("Vectors must not be empty!");
+	//}
 	// Check for errors, only proceed if all of the vectors have the same size
 	if (directors.size() != titles.size() || runtimes.size() != directors.size() ||
 		ids.size() != directors.size() || ratings.size() != directors.size())
@@ -11,10 +15,6 @@ vector<Movie*> CreateMovies(vector<string> titles, vector<string> directors,
 		throw invalid_argument("Input Vectors must have the same size!");
 	}
 
-	if (ids.empty() || titles.empty() || directors.empty() || runtimes.empty() || ratings.empty())
-	{
-		throw invalid_argument("Vectors must not be empty!");
-	}
 	// Intializing vector of pointers to return
 	vector<Movie*> movieList;
 	// Loop through every element in the arrays 

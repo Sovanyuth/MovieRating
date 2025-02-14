@@ -12,12 +12,12 @@ Movie::Movie(string title, string director, int runtime, int id, double rating)
 		throw invalid_argument("Error (Invalid Movie): The title and director should not be empty!");
 	}
 
-	if (id < 0)
+	if (id <= 0)
 	{
 		throw invalid_argument("Error (Invalid ID): Id must not be negative!");
 	}
 
-	if (runtime < 0)
+	if (runtime <= 0)
 	{
 		throw invalid_argument("Error (Invalid Runtime): Runtime must not be negative! Also funfact: the longest movie ever made is 857 hours or 51420 minutes");
 	}
