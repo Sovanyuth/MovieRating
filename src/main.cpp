@@ -49,7 +49,7 @@ size_t CalculateAverageRuntime(const vector<Movie*>& movies)
 int main() 
 {
 	std::vector<std::string> titles{ "John Wick 4", "Dune:Part Two", "La la land", "StarWars: Episode III - Revenge of the Sith", "Oppenheimer" };
-	std::vector<std::string> directors{ "Director 1", "Director 2", "Director 3", "Director 4", "Director 5" };
+	std::vector<std::string> directors{ "Director 1", "Director 2", "Director 3", "Director 4", "Director 5" };		
 	std::vector<int> runtimes{ 169, 166, 128, 140, 180 };
 	std::vector<int> ids{ 1, 2, 3, 4, 5 };
 	std::vector<double> ratings{ 9.4, 9.2, 9.1, 8.0, 9.3 };
@@ -58,12 +58,18 @@ int main()
 
 	Movie* bestMovie = FindHighestRateMovie(movies);
 
+	size_t avgRuntime = CalculateAverageRuntime(movies);
+
 	if (bestMovie != nullptr) {
 		std::cout << "Highest Rated Movie: " << bestMovie->GetTitle() << std::endl; // Use -> here as well!
 	}
 	else {
 		std::cout << "No movies found." << std::endl;
 	}
+
+	std::cout << "The Average Runtime of these movies are: " << avgRuntime << endl;
+
+	movies[0]->PrintMoveData();
 
 	deallocateNewPtrs(movies);
 

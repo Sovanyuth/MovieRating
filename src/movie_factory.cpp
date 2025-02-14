@@ -11,14 +11,9 @@ vector<Movie*> CreateMovies(const vector<int>& ids, const vector<string>& titles
 	{
 		throw invalid_argument("Input Vectors must have the same size!");
 	}
-	// Error check for ratings. The range must be from 0 to 10
-	for (auto& rating : ratings) 
+	else if (ids.empty() || titles.empty() || directors.empty() || runtimes.empty() || ratings.empty())
 	{
-		if (rating < 0 || rating > 10)
-		{
-			throw invalid_argument("Ratings must be from 1 - 10!");
-			break;
-		}
+		throw invalid_argument("Input Vectors must have the same size!");
 	}
 	// Intializing vector of pointers to return
 	vector<Movie*> movieList;
@@ -36,6 +31,7 @@ vector<Movie*> CreateMovies(const vector<int>& ids, const vector<string>& titles
 
 void deallocateNewPtrs(const vector<Movie*>& movies)
 {
+	// For loop that deallocates memory for the objects
 	for (auto& obj : movies) 
 	{	
 		delete obj;
