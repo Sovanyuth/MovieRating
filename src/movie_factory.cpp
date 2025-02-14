@@ -1,8 +1,8 @@
 #include "movie_factory.h"
 #include <iostream>
 // I've initialized the parameters with const and reference so that I could just 
-vector<Movie*> CreateMovies(vector<string> titles, vector<string> directors, vector<int> ids,
-    vector<int> runtimes, vector<double> ratings)
+vector<Movie*> CreateMovies(vector<string> titles, vector<string> directors,
+    vector<int> runtimes, vector<int> ids, vector<double> ratings)
 {
 	// Check for errors, only proceed if all of the vectors have the same size
 	if (directors.size() != titles.size() || runtimes.size() != directors.size() ||
@@ -10,9 +10,10 @@ vector<Movie*> CreateMovies(vector<string> titles, vector<string> directors, vec
 	{
 		throw invalid_argument("Input Vectors must have the same size!");
 	}
-	else if (ids.empty() || titles.empty() || directors.empty() || runtimes.empty() || ratings.empty())
+
+	if (ids.empty() || titles.empty() || directors.empty() || runtimes.empty() || ratings.empty())
 	{
-		throw invalid_argument("Input Vectors must have the same size!");
+		throw invalid_argument("Vectors must not be empty!");
 	}
 	// Intializing vector of pointers to return
 	vector<Movie*> movieList;

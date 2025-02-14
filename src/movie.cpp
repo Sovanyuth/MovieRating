@@ -4,7 +4,7 @@
 #include <exception>
 using namespace std;
 
-Movie::Movie(string title, string director, int id, int runtime, double rating)
+Movie::Movie(string title, string director, int runtime, int id, double rating)
 {
 	// Error 1: Throw an exception when the movie constructor is given at least 1 empty vectors
 	if (title.empty() || director.empty())

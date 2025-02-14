@@ -13,7 +13,7 @@ accepts (attributes in the below order)
 return
   vector of pointers of Movie objects
 */
-vector<Movie*> CreateMovies(vector<string> titles, vector<string> directors, vector<int> ids,
-    vector<int> runtimes, vector<double> ratings);
+vector<Movie*> CreateMovies(vector<string> titles, vector<string> directors, vector<int> runtimes, 
+    vector<int> ids, vector<double> ratings);
 
 void deallocateNewPtrs(const vector<Movie*>& movies);

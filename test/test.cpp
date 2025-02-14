@@ -6,7 +6,7 @@
 
 TEST_CASE("Movie class fuctions", "[Movie][valid]")
 {
-    Movie* uniqueMoviePtr = new Movie("Avengers:Infinity War", "Anthony/Joe Russo", 1, 149, 8.4);
+    Movie* uniqueMoviePtr = new Movie("Avengers:Infinity War", "Anthony/Joe Russo", 149, 1, 8.4);
     // Test 1: Teting all of the member variables of my class
     REQUIRE(uniqueMoviePtr->GetDirector() == "Anthony/Joe Russo");
     REQUIRE(uniqueMoviePtr->GetId() == 1);
@@ -21,16 +21,16 @@ TEST_CASE("Movie class fuctions invalid cases", "[Movie][invalid]")
 {
     // Test 2: Teting all of the exceptions that must be thrown by the errors caused in the constructor
     // Case 1: Invalid Id: ID is negative
-    REQUIRE_THROWS_AS(Movie("Avengers:Infinity War", "Anthony/Joe Russo", -1, 149, 8.4), invalid_argument);
+    REQUIRE_THROWS_AS(Movie("Avengers:Infinity War", "Anthony/Joe Russo", 149, -1, 8.4), invalid_argument);
 
     // Case 2: Movie title or director is empty
-    REQUIRE_THROWS_AS(Movie("", "", 4, 149, 8.4), invalid_argument);
+    REQUIRE_THROWS_AS(Movie("", "", 149, 4, 8.4), invalid_argument);
 
     // Case 3: Invalid Movie runtime
-    REQUIRE_THROWS_AS(Movie("Wall-E", "Andrew Stanton", 4, -13, 8.4), invalid_argument);
+    REQUIRE_THROWS_AS(Movie("Wall-E", "Andrew Stanton", -13, 4, 8.4), invalid_argument);
 
     // Case 4: Rating exceeds limit
-    REQUIRE_THROWS_AS(Movie("Wall-E", "Andrew Stanton", 4, 133, 12), invalid_argument);
+    REQUIRE_THROWS_AS(Movie("Wall-E", "Andrew Stanton", 133, 4, 12), invalid_argument);
 }
 
 TEST_CASE("Vector of Movies, [CreateMovies][valid]") 
@@ -64,7 +64,7 @@ TEST_CASE("Empty Input Vectors", "[CreateMovies][invalid]")
         std::vector<double> ratings;
 
         // ... (Assertions to check if an exception is thrown or an empty vector is returned)
-        REQUIRE_THROWS_AS(CreateMovies(titles, directors, ids, runtimes, ratings), invalid_argument);
+        REQUIRE_THROWS_AS(CreateMovies(titles, directors, runtimes, ids, ratings), invalid_argument);
     }
 
     SECTION("Different Sizes Vectors")
@@ -77,7 +77,7 @@ TEST_CASE("Empty Input Vectors", "[CreateMovies][invalid]")
         std::vector<double> ratings{7.8, 8.4, 9.2, 7.4};
 
         // Assertions to check if an exception is thrown, should throw an exception here
-        REQUIRE_THROWS_AS(CreateMovies(titles, directors, ids, runtimes, ratings), invalid_argument);
+        REQUIRE_THROWS_AS(CreateMovies(titles, directors, runtimes, ids, ratings), invalid_argument);
     }
 
     SECTION("1 Movie has an invalid runtime")
@@ -89,6 +89,6 @@ TEST_CASE("Empty Input Vectors", "[CreateMovies][invalid]")
         std::vector<double> ratings{ 7.8, 8.4, 9.2};
 
         // Assertions to check if an exception is thrown
-        REQUIRE_THROWS_AS(CreateMovies(titles, directors, ids, runtimes, ratings), invalid_argument);
+        REQUIRE_THROWS_AS(CreateMovies(titles, directors, runtimes, ids, ratings), invalid_argument);
     }
 }
