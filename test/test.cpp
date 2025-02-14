@@ -41,7 +41,7 @@ TEST_CASE("Vector of Movies, [CreateMovies][valid]")
     std::vector<int> ids{ 1, 2, 3, 4, 5 };
     std::vector<double> ratings{ 9.4, 9.2, 9.1, 8.0, 9.3 };
 
-    std::vector<Movie*> movies = CreateMovies(ids, titles, directors, runtimes, ratings);
+    std::vector<Movie*> movies = CreateMovies(titles, directors, ids, runtimes, ratings);
     REQUIRE(movies.size() == 5);
     REQUIRE(movies[0]->GetTitle() == "John Wick 4");
     REQUIRE(movies[1]->GetTitle() == "Dune:Part Two");
@@ -64,7 +64,7 @@ TEST_CASE("Empty Input Vectors", "[CreateMovies][invalid]")
         std::vector<double> ratings;
 
         // ... (Assertions to check if an exception is thrown or an empty vector is returned)
-        REQUIRE_THROWS_AS(CreateMovies(ids, titles, directors, runtimes, ratings), invalid_argument);
+        REQUIRE_THROWS_AS(CreateMovies(titles, directors, ids, runtimes, ratings), invalid_argument);
     }
 
     SECTION("Different Sizes Vectors")
@@ -77,7 +77,7 @@ TEST_CASE("Empty Input Vectors", "[CreateMovies][invalid]")
         std::vector<double> ratings{7.8, 8.4, 9.2, 7.4};
 
         // Assertions to check if an exception is thrown, should throw an exception here
-        REQUIRE_THROWS_AS(CreateMovies(ids, titles, directors, runtimes, ratings), invalid_argument);
+        REQUIRE_THROWS_AS(CreateMovies(titles, directors, ids, runtimes, ratings), invalid_argument);
     }
 
     SECTION("1 Movie has an invalid runtime")
@@ -89,6 +89,6 @@ TEST_CASE("Empty Input Vectors", "[CreateMovies][invalid]")
         std::vector<double> ratings{ 7.8, 8.4, 9.2};
 
         // Assertions to check if an exception is thrown
-        REQUIRE_THROWS_AS(CreateMovies(ids, titles, directors, runtimes, ratings), invalid_argument);
+        REQUIRE_THROWS_AS(CreateMovies(titles, directors, ids, runtimes, ratings), invalid_argument);
     }
 }

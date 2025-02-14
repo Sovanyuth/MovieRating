@@ -54,7 +54,7 @@ int main()
 	std::vector<int> ids{ 1, 2, 3, 4, 5 };
 	std::vector<double> ratings{ 9.4, 9.2, 9.1, 8.0, 9.3 };
 
-	std::vector<Movie*> movies = CreateMovies(ids, titles, directors, runtimes, ratings); 
+	std::vector<Movie*> movies = CreateMovies(titles, directors, ids, runtimes, ratings); 
 
 	Movie* bestMovie = FindHighestRateMovie(movies);
 
