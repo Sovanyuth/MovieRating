@@ -16,12 +16,12 @@ class Movie {
 
 	public:
 		// Public Data: All of the methods that includes mutators and accessors.
-		Movie(int id, string, string, int runtime, double rating);
+		Movie(string title, string director, int id, int runtime, double rating);
 		int GetId();
 		string GetTitle();
 		string GetDirector();
 		double GetRating();
-		int GetRunTime();
+		int GetRuntime();
 
 		void PrintMoveData();
 };

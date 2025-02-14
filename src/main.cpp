@@ -37,7 +37,7 @@ size_t CalculateAverageRuntime(const vector<Movie*>& movies)
 
 	for (auto& movie : movies)
 	{
-		int currentMovieRuntime = movie->GetRunTime();
+		int currentMovieRuntime = movie->GetRuntime();
 		averageRuntime += currentMovieRuntime;
 	}
 

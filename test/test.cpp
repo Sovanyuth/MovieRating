@@ -6,12 +6,12 @@
 
 TEST_CASE("Movie class fuctions", "[Movie][valid]")
 {
-    Movie* uniqueMoviePtr = new Movie(1, "Avengers:Infinity War", "Anthony/Joe Russo", 149, 8.4);
+    Movie* uniqueMoviePtr = new Movie("Avengers:Infinity War", "Anthony/Joe Russo", 1, 149, 8.4);
     // Test 1: Teting all of the member variables of my class
     REQUIRE(uniqueMoviePtr->GetDirector() == "Anthony/Joe Russo");
     REQUIRE(uniqueMoviePtr->GetId() == 1);
     REQUIRE(uniqueMoviePtr->GetTitle() == "Avengers:Infinity War");
-    REQUIRE(uniqueMoviePtr->GetRunTime() == 149);
+    REQUIRE(uniqueMoviePtr->GetRuntime() == 149);
     REQUIRE(uniqueMoviePtr->GetRating() == 8.4);
 
     delete uniqueMoviePtr;
@@ -21,16 +21,16 @@ TEST_CASE("Movie class fuctions invalid cases", "[Movie][invalid]")
 {
     // Test 2: Teting all of the exceptions that must be thrown by the errors caused in the constructor
     // Case 1: Invalid Id: ID is negative
-    REQUIRE_THROWS_AS(Movie(-1, "Avengers:Infinity War", "Anthony/Joe Russo", 149, 8.4), invalid_argument);
+    REQUIRE_THROWS_AS(Movie("Avengers:Infinity War", "Anthony/Joe Russo", -1, 149, 8.4), invalid_argument);
 
     // Case 2: Movie title or director is empty
-    REQUIRE_THROWS_AS(Movie(4, "", "", 149, 8.4), invalid_argument);
+    REQUIRE_THROWS_AS(Movie("", "", 4, 149, 8.4), invalid_argument);
 
     // Case 3: Invalid Movie runtime
-    REQUIRE_THROWS_AS(Movie(4, "Wall-E", "Andrew Stanton", -13, 8.4), invalid_argument);
+    REQUIRE_THROWS_AS(Movie("Wall-E", "Andrew Stanton", 4, -13, 8.4), invalid_argument);
 
     // Case 4: Rating exceeds limit
-    REQUIRE_THROWS_AS(Movie(4, "Wall-E", "Andrew Stanton", 133, 12), invalid_argument);
+    REQUIRE_THROWS_AS(Movie("Wall-E", "Andrew Stanton", 4, 133, 12), invalid_argument);
 }
 
 TEST_CASE("Vector of Movies, [CreateMovies][valid]") 
@@ -47,7 +47,7 @@ TEST_CASE("Vector of Movies, [CreateMovies][valid]")
     REQUIRE(movies[1]->GetTitle() == "Dune:Part Two");
     REQUIRE(movies[4]->GetTitle() == "Oppenheimer");
 
-    REQUIRE(movies[2]->GetRunTime() == 128);
+    REQUIRE(movies[2]->GetRuntime() == 128);
     REQUIRE(movies[3]->GetRating() == 8.0);
 
     deallocateNewPtrs(movies);

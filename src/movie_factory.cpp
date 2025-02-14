@@ -21,7 +21,7 @@ vector<Movie*> CreateMovies(vector<string> titles, vector<string> directors, vec
 	// at that index
 	for (size_t i = 0; i < directors.size(); i++)
 	{
-		Movie* uniqueMoviePtr = new Movie(ids[i], titles[i], directors[i], runtimes[i], ratings[i]);
+		Movie* uniqueMoviePtr = new Movie(titles[i], directors[i], ids[i], runtimes[i], ratings[i]);
 		movieList.push_back(uniqueMoviePtr);
 	}
 	// Return vector of pointers of those movie objects
