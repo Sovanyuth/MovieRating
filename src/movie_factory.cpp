@@ -1,7 +1,7 @@
 #include "movie_factory.h"
 #include <iostream>
 // I've initialized the parameters with const and reference so that I could just 
-vector<Movie*> CreateMovies(vector<int> ids, vector<string> titles, vector<string> directors, 
+vector<Movie*> CreateMovies(vector<string> titles, vector<string> directors, vector<int> ids,
     vector<int> runtimes, vector<double> ratings)
 {
 	// Check for errors, only proceed if all of the vectors have the same size
