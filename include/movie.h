@@ -16,12 +16,12 @@ class Movie {
 
 	public:
 		// Public Data: All of the methods that includes mutators and accessors.
-		Movie(int id, const string& title, const string& director, int runtime, double rating);
-		int GetId() const;
-		string GetTitle() const;
-		string GetDirector() const;
-		double GetRating() const;
-		int GetRunTime() const;
+		Movie(int id, string, string, int runtime, double rating);
+		int GetId();
+		string GetTitle();
+		string GetDirector();
+		double GetRating();
+		int GetRunTime();
 
 		void PrintMoveData();
 };

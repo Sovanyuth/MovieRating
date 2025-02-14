@@ -1,13 +1,12 @@
 #include "movie_factory.h"
 #include <iostream>
 // I've initialized the parameters with const and reference so that I could just 
-vector<Movie*> CreateMovies(const vector<int>& ids, const vector<string>& titles, const vector<string>& directors, 
-	const vector<int>& runtimes, const vector<double>& ratings)
+vector<Movie*> CreateMovies(vector<int> ids, vector<string> titles, vector<string> directors, 
+    vector<int> runtimes, vector<double> ratings)
 {
-	size_t numMovies = titles.size();
 	// Check for errors, only proceed if all of the vectors have the same size
-	if (directors.size() != numMovies || runtimes.size() != numMovies ||
-		ids.size() != numMovies || ratings.size() != numMovies)
+	if (directors.size() != titles.size() || runtimes.size() != directors.size() ||
+		ids.size() != directors.size() || ratings.size() != directors.size())
 	{
 		throw invalid_argument("Input Vectors must have the same size!");
 	}
@@ -20,7 +19,7 @@ vector<Movie*> CreateMovies(const vector<int>& ids, const vector<string>& titles
 	// Loop through every element in the arrays 
 	// For every element, create an object that gets the data from each of the array elements 
 	// at that index
-	for (size_t i = 0; i < numMovies; i++)
+	for (size_t i = 0; i < directors.size(); i++)
 	{
 		Movie* uniqueMoviePtr = new Movie(ids[i], titles[i], directors[i], runtimes[i], ratings[i]);
 		movieList.push_back(uniqueMoviePtr);

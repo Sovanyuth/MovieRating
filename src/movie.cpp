@@ -4,7 +4,7 @@
 #include <exception>
 using namespace std;
 
-Movie::Movie(int id, const string& title, const string& director, int runtime, double rating)
+Movie::Movie(int id, string title, string director, int runtime, double rating)
 	:id(id), title(title), director(director), runtime(runtime), rating(rating)
 {
 	// Error 1: Throw an exception when the movie constructor is given at least 1 empty vectors
@@ -29,27 +29,27 @@ Movie::Movie(int id, const string& title, const string& director, int runtime, d
 	}
 }
 
-int Movie::GetId() const
+int Movie::GetId() 
 {
 	return id;
 }
 
-string Movie::GetTitle() const
+string Movie::GetTitle() 
 {
 	return title;
 }
 
-string Movie::GetDirector() const
+string Movie::GetDirector() 
 {
 	return director;
 }
 
-double Movie::GetRating() const
+double Movie::GetRating() 
 {
 	return rating;
 }
 
-int Movie::GetRunTime() const
+int Movie::GetRunTime() 
 {
 	return runtime;
 }
