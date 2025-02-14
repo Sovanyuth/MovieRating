@@ -9,7 +9,7 @@ vector<Movie*> CreateMovies(vector<string> titles, vector<string> directors,
 	//	throw invalid_argument("Vectors must not be empty!");
 	//}
 	// Check for errors, only proceed if all of the vectors have the same size
-	if (directors.size() != titles.size() || runtimes.size() != directors.size() ||
+	if (titles.size() != directors.size() || runtimes.size() != directors.size() ||
 		ids.size() != directors.size() || ratings.size() != directors.size())
 	{
 		throw invalid_argument("Input Vectors must have the same size!");
@@ -22,7 +22,7 @@ vector<Movie*> CreateMovies(vector<string> titles, vector<string> directors,
 	// at that index
 	for (size_t i = 0; i < directors.size(); i++)
 	{
-		Movie* uniqueMoviePtr = new Movie(titles[i], directors[i], ids[i], runtimes[i], ratings[i]);
+		Movie* uniqueMoviePtr = new Movie(titles[i], directors[i], runtimes[i], ids[i], ratings[i]);
 		movieList.push_back(uniqueMoviePtr);
 	}
 	// Return vector of pointers of those movie objects
