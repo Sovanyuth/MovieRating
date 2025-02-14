@@ -69,13 +69,14 @@ TEST_CASE("Empty Input Vectors", "[CreateMovies][invalid]")
 
     SECTION("Different Sizes Vectors")
     {
+        // Arrangement
         std::vector<std::string> titles{"Cinderella", "The Notebook", "Parasite"};
         std::vector<std::string> directors{"Director 1", "Director 2"};
         std::vector<int> runtimes{76, 121, 132};
         std::vector<int> ids{1, 2, 3};
         std::vector<double> ratings{7.8, 8.4, 9.2, 7.4};
 
-        // ... (Assertions to check if an exception is thrown or an empty vector is returned)
+        // Assertions to check if an exception is thrown, should throw an exception here
         REQUIRE_THROWS_AS(CreateMovies(ids, titles, directors, runtimes, ratings), invalid_argument);
     }
 
@@ -87,7 +88,7 @@ TEST_CASE("Empty Input Vectors", "[CreateMovies][invalid]")
         std::vector<int> ids{ 1, 2, 3 };
         std::vector<double> ratings{ 7.8, 8.4, 9.2};
 
-        // ... (Assertions to check if an exception is thrown or an empty vector is returned)
+        // Assertions to check if an exception is thrown
         REQUIRE_THROWS_AS(CreateMovies(ids, titles, directors, runtimes, ratings), invalid_argument);
     }
 }
